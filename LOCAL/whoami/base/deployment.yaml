@@ -3,14 +3,17 @@ kind: Deployment
 metadata:
   name: whoami
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: whoami
-  spec:
-    containers:
+  template:
+    metadata:
+      labels:
+        app: whoami
+    spec:
+      containers:
       - name: whoami
         image: containous/whoami
         ports:
-          - name: http
-            containerPort: 80
-            protocol: TCP
+        - containerPort: 80

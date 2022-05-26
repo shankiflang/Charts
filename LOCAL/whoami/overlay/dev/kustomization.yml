@@ -3,6 +3,9 @@ kind: Kustomization
 
 bases:
   - ../../base
-  
-patchesStrategicMerge:
+
+resources:
+  - ingress.yaml
+
+# patchesStrategicMerge: 
   # - hpa.yaml

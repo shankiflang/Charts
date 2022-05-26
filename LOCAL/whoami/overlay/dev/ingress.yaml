@@ -1,13 +1,13 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: argocd-server-ingress
-  namespace: whoami
+  name: whoami-ingress
   annotations:
-    kubernetes.io/ingress.class: "nginx"
-    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+    kubernetes.io/ingress.class: "public" 
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
     kubernetes.io/tls-acme: "true"
-    certmanager.k8s.io/acme-challenge-type: "http01" 
+    acme.cert-manager.io/dns01-edit-in-place: "true"
 spec:
   rules:
   - host: whoami.local.slatsh.com
@@ -19,7 +19,7 @@ spec:
           service: 
             name: whoami
             port:
-              name: https
+              number: 80
   tls:
   - hosts:
     - whoami.local.slatsh.com
