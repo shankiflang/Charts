@@ -7,7 +7,6 @@ metadata:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt-staging
     kubernetes.io/tls-acme: "true"
-    certmanager.k8s.io/acme-challenge-type: dns01
 spec:
   rules:
   - host: argocd.local.slatsh.com
@@ -23,4 +22,4 @@ spec:
   tls:
   - hosts:
     - argocd.local.slatsh.com
-    secretName: argocd-secret # do not change, this is provided by Argo CD
+    secretName: argocd-secret
