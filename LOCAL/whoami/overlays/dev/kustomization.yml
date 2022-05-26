@@ -6,6 +6,5 @@ bases:
 
 resources:
   - ingress.yaml
-
-# patchesStrategicMerge: 
-  # - hpa.yaml
+# patchesStrategicMerge:
+# - hpa.yaml

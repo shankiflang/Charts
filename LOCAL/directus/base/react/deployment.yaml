@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: whoami
+  name: react
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: whoami
+      app: react
   template:
     metadata:
       labels:
-        app: whoami
+        app: react
     spec:
       containers:
-        - name: whoami
-          image: containous/whoami
-          ports:
-            - containerPort: 80
+        - name: react
+          image: nginx
+          # ports:
+          #   - containerPort: 80

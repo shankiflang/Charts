@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: directus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: directus
+  template:
+    metadata:
+      labels:
+        app: directus
+    spec:
+      containers:
+        - name: directus
+          image: directus/directus:9
+          env:
+            - name: KEY
+              value: "255d861b-5ea1-5996-9aa3-922530ec40b1"
+            - name: SECRET
+              value: "6116487b-cda1-52c2-b5b5-c8022c45e263"
+            - name: CACHE_ENABLED
+              value: "true"
+            - name: CACHE_STORE
+              value: "redis"
+            - name: CACHE_REDIS
+              value: "redis://redis:6379"
+            - name: ADMIN_EMAIL
+              value: "admin@example.com"
+            - name: ADMIN_PASSWORD
+              value: "d1r3ctu5"

@@ -1,0 +1,39 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: directus-ingress
+  annotations:
+    kubernetes.io/ingress.class: public
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+spec:
+  rules:
+    - host: directus.test.local.slatsh.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: directus
+                port:
+                  name: https
+    - host: test.local.slatsh.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: react
+                port:
+                  name: https
+  tls:
+    - hosts:
+        - directus.test.local.slatsh.com
+      secretName: directus-test-local-secret
+    - hosts:
+        - test.local.slatsh.com
+      secretName: test-local-secret
+

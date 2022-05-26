@@ -1,24 +1,26 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: argocd-server-ingress
+  name: react-ingress
   annotations:
     kubernetes.io/ingress.class: public
-    cert-manager.io/cluster-issuer: letsencrypt-staging
+    cert-manager.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
   rules:
-    - host: argocd.local.slatsh.com
+    - host: dev.test.local.slatsh.com
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: argocd-server
+                name: react
                 port:
                   name: https
   tls:
     - hosts:
-        - argocd.local.slatsh.com
-      secretName: argocd-secret
+        - dev.test.local.slatsh.com
+      secretName: dev-test-local-secret
+

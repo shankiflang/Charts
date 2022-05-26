@@ -1,8 +1,8 @@
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
- name: letsencrypt-staging
- namespace: cert-manager
+  name: letsencrypt-staging
+  namespace: cert-manager
 spec:
   acme:
     # The ACME server URL
@@ -14,12 +14,12 @@ spec:
       name: letsencrypt-token
     # Enable the HTTP-01 challenge provider
     solvers:
-    - dns01:
-        cloudflare:
-          email: shankiflang@gmail.com
-          apiKeySecretRef:
-            name: cloudflare-api-key-secret
-            key: api-key
+      - dns01:
+          cloudflare:
+            email: shankiflang@gmail.com
+            apiKeySecretRef:
+              name: cloudflare-api-key-secret
+              key: api-key
 ---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
@@ -37,9 +37,9 @@ spec:
       name: letsencrypt-token
     # Enable the HTTP-01 challenge provider
     solvers:
-    - dns01:
-        cloudflare:
-          email: shankiflang@gmail.com
-          apiKeySecretRef:
-            name: cloudflare-api-key-secret
-            key: api-key
+      - dns01:
+          cloudflare:
+            email: shankiflang@gmail.com
+            apiKeySecretRef:
+              name: cloudflare-api-key-secret
+              key: api-key
