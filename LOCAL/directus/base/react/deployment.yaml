@@ -15,5 +15,3 @@ spec:
       containers:
         - name: react
           image: nginx
-          # ports:
-          #   - containerPort: 80

@@ -7,4 +7,5 @@ bases:
   - ../../base
 
 resources:
-  - ingress.yaml
+  - directus/ingress.yaml
+  - react/ingress.yaml
