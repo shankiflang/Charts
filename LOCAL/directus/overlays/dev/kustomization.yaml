@@ -7,5 +7,7 @@ bases:
   - ../../base
 
 resources:
+  - directus/configmap.yaml
+  - directus/secrets.yaml
   - directus/ingress.yaml
   - react/ingress.yaml
