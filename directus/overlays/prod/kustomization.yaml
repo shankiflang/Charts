@@ -8,4 +8,4 @@ bases:
 
 resources:
   - directus/ingress.yaml
-  - react/ingress.yaml
+  - next/ingress.yaml

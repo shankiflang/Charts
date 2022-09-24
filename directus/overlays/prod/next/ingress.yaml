@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: react-ingress-staging
+  name: next-ingress
   annotations:
     kubernetes.io/ingress.class: public
     cert-manager.io/cluster-issuer: letsencrypt-prod
@@ -9,18 +9,17 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
   rules:
-    - host: dev.test.local.slatsh.com
+    - host: test.local.slatsh.com
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: react
+                name: next
                 port:
                   name: https
   tls:
     - hosts:
-        - dev.test.local.slatsh.com
-      secretName: dev-test-local-secret
-
+        - test.local.slatsh.com
+      secretName: next-test-local-secret
