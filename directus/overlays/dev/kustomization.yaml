@@ -8,6 +8,5 @@ bases:
 
 resources:
   - directus/configmap.yaml
-  - directus/secrets.yaml
   - directus/ingress.yaml
   - next/ingress.yaml
