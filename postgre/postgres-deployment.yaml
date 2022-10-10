@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: postgres:10.4
+          image: postgis/postgis:14-3.3-alpine
           envFrom:
             - configMapRef:
                 name: postgres-config
