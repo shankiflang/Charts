@@ -8,4 +8,4 @@ resources:
   - storage.yaml
   - deployment.yaml
   - service.yaml
-  - inrgess.yaml
+  - ingress.yaml
