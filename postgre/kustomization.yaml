@@ -4,7 +4,8 @@ kind: Kustomization
 namespace: postgres
 
 resources:
-  - postgres-configmap.yaml
-  - postgres-storage.yaml
-  - postgres-deployment.yaml
-  - postgres-service.yaml
+  - configmap.yaml
+  - storage.yaml
+  - deployment.yaml
+  - service.yaml
+  - inrgess.yaml

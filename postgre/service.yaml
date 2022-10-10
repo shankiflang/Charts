@@ -6,8 +6,10 @@ metadata:
   labels:
     app: postgres
 spec:
-  type: NodePort
-  ports:
-    - port: 5432
   selector:
     app: postgres
+  ports:
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 5432
